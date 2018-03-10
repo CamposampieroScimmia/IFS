@@ -24,7 +24,7 @@ public class Clienti  implements Serializable{
     @Id
     @Column(name="piva")
     private String piva;
-    @Column(name="nomeCliente")
+    @Column(name="nomeCliente", nullable = false)
     private String nomeCliente;
     
     @OneToMany(fetch=FetchType.EAGER,mappedBy="cliente")
