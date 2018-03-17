@@ -4,11 +4,16 @@
  * and open the template in the editor.
  */
 package nonConformita.dao;
+import java.util.List;
+import nonConformita.model.Segnalazioni;
 
 /**
  *
  * @author FSEVERI\lucangeli3503
  */
 public interface SegnalazioniDao {
-    
+    Segnalazioni findByCodice(int codice);
+    void saveSegnalazione(Segnalazioni segnalazione);
+    void deleteSegnalazione(int codice);
+    List<Segnalazioni> findAllSegnalazioni();
 }
