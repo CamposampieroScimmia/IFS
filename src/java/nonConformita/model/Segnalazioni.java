@@ -26,6 +26,7 @@ import javax.persistence.Table;
 public class Segnalazioni implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="codice", nullable=false)
     private int codice;
     @Column(name="descrizione", nullable=false)
     private String descrizione;
@@ -35,4 +36,41 @@ public class Segnalazioni implements Serializable {
     @ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="dipendente")
     private Dipendenti dipendente;
+
+    public Segnalazioni() {
+    }
+
+    public int getCodice() {
+        return codice;
+    }
+
+    public void setCodice(int codice) {
+        this.codice = codice;
+    }
+
+    public String getDescrizione() {
+        return descrizione;
+    }
+
+    public void setDescrizione(String descrizione) {
+        this.descrizione = descrizione;
+    }
+
+    public Date getData() {
+        return data;
+    }
+
+    public void setData(Date data) {
+        this.data = data;
+    }
+
+    public Dipendenti getDipendente() {
+        return dipendente;
+    }
+
+    public void setDipendente(Dipendenti dipendente) {
+        this.dipendente = dipendente;
+    }
+    
+    
 }

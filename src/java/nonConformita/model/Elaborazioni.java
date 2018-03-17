@@ -29,6 +29,7 @@ public class Elaborazioni implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "ID", nullable = false)
     private int ID;
     @Column(name = "descrizione", nullable = false)
     private String descrizione;
@@ -47,4 +48,53 @@ public class Elaborazioni implements Serializable {
 
     public Elaborazioni() {
     }
+
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+
+    public String getDescrizione() {
+        return descrizione;
+    }
+
+    public void setDescrizione(String descrizione) {
+        this.descrizione = descrizione;
+    }
+
+    public Date getDataI() {
+        return dataI;
+    }
+
+    public void setDataI(Date dataI) {
+        this.dataI = dataI;
+    }
+
+    public Date getDataF() {
+        return dataF;
+    }
+
+    public void setDataF(Date dataF) {
+        this.dataF = dataF;
+    }
+
+    public Dipendenti getDipendente() {
+        return dipendente;
+    }
+
+    public void setDipendente(Dipendenti dipendente) {
+        this.dipendente = dipendente;
+    }
+
+    public Report getReport() {
+        return report;
+    }
+
+    public void setReport(Report report) {
+        this.report = report;
+    }
+    
 }

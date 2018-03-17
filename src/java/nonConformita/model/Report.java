@@ -11,6 +11,8 @@ import java.util.List;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -33,30 +35,32 @@ public class Report implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "codiceNC",nullable=false)
     private int codiceNC;
-    @Column(name = "descrizioneProb", nullable = false)
+    @Column(name = "descrizioneProb")
     private String descrizioneProb;
     @Column(name = "dataInizio", nullable = false)
     private Date dataInizio;
     @Column(name = "dataFine")
     private Date dataFine;
-    @Column(name = "stato", nullable = false)
+    @Enumerated(EnumType.STRING)
+    @Column(name = "stato" )
     private Stato stato;
-    @Column(name = "cause", nullable = false)
+    @Column(name = "cause")
     private String cause;
-    @Column(name = "teamOp", nullable = false)
+    @Column(name = "teamOp")
     private String teamOp;
-    @Column(name = "azioniCorrettive", nullable = false)
+    @Column(name = "azioniCorrettive")
     private String azioniCorrettive;
     @Column(name = "efficaciaAC")
     private String efficaciaAC;
-    @Column(name = "azioniContenitive", nullable = false)
+    @Column(name = "azioniContenitive")
     private String azioniContenitive;
-    @Column(name = "prevenzione", nullable = false)
+    @Column(name = "prevenzione")
     private String prevenzione;
     @Column(name = "costo")
     private int costo;
-    @Column(name = "revisioneFinale", nullable = false)
+    @Column(name = "revisioneFinale")
     private String revisioneF;
 
     @OneToMany(fetch=FetchType.EAGER,mappedBy = "report")
@@ -93,4 +97,168 @@ public class Report implements Serializable {
 
     public Report() {
     }
+
+    public int getCodiceNC() {
+        return codiceNC;
+    }
+
+    public void setCodiceNC(int codiceNC) {
+        this.codiceNC = codiceNC;
+    }
+
+    public String getDescrizioneProb() {
+        return descrizioneProb;
+    }
+
+    public void setDescrizioneProb(String descrizioneProb) {
+        this.descrizioneProb = descrizioneProb;
+    }
+
+    public Date getDataInizio() {
+        return dataInizio;
+    }
+
+    public void setDataInizio(Date dataInizio) {
+        this.dataInizio = dataInizio;
+    }
+
+    public Date getDataFine() {
+        return dataFine;
+    }
+
+    public void setDataFine(Date dataFine) {
+        this.dataFine = dataFine;
+    }
+
+    @Enumerated(EnumType.STRING)
+    public Stato getStato() {
+        return stato;
+    }
+
+    @Enumerated(EnumType.STRING)
+    public void setStato(Stato stato) {
+        this.stato = stato;
+    }
+
+    public String getCause() {
+        return cause;
+    }
+
+    public void setCause(String cause) {
+        this.cause = cause;
+    }
+
+    public String getTeamOp() {
+        return teamOp;
+    }
+
+    public void setTeamOp(String teamOp) {
+        this.teamOp = teamOp;
+    }
+
+    public String getAzioniCorrettive() {
+        return azioniCorrettive;
+    }
+
+    public void setAzioniCorrettive(String azioniCorrettive) {
+        this.azioniCorrettive = azioniCorrettive;
+    }
+
+    public String getEfficaciaAC() {
+        return efficaciaAC;
+    }
+
+    public void setEfficaciaAC(String efficaciaAC) {
+        this.efficaciaAC = efficaciaAC;
+    }
+
+    public String getAzioniContenitive() {
+        return azioniContenitive;
+    }
+
+    public void setAzioniContenitive(String azioniContenitive) {
+        this.azioniContenitive = azioniContenitive;
+    }
+
+    public String getPrevenzione() {
+        return prevenzione;
+    }
+
+    public void setPrevenzione(String prevenzione) {
+        this.prevenzione = prevenzione;
+    }
+
+    public int getCosto() {
+        return costo;
+    }
+
+    public void setCosto(int costo) {
+        this.costo = costo;
+    }
+
+    public String getRevisioneF() {
+        return revisioneF;
+    }
+
+    public void setRevisioneF(String revisioneF) {
+        this.revisioneF = revisioneF;
+    }
+
+    public List<Report> getReport() {
+        return report;
+    }
+
+    public void setReport(List<Report> report) {
+        this.report = report;
+    }
+
+    public Pezzi getPezzo() {
+        return pezzo;
+    }
+
+    public void setPezzo(Pezzi pezzo) {
+        this.pezzo = pezzo;
+    }
+
+    public TipoNC getTipoNC() {
+        return tipoNC;
+    }
+
+    public void setTipoNC(TipoNC tipoNC) {
+        this.tipoNC = tipoNC;
+    }
+
+    public Fornitori getFornitore() {
+        return fornitore;
+    }
+
+    public void setFornitore(Fornitori fornitore) {
+        this.fornitore = fornitore;
+    }
+
+    public Reparti getReparto() {
+        return reparto;
+    }
+
+    public void setReparto(Reparti reparto) {
+        this.reparto = reparto;
+    }
+
+    public Clienti getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Clienti cliente) {
+        this.cliente = cliente;
+    }
+
+    public Set<Pezzi> getPezzi() {
+        return pezzi;
+    }
+
+    public void setPezzi(Set<Pezzi> pezzi) {
+        this.pezzi = pezzi;
+    }
+    
+    
 }

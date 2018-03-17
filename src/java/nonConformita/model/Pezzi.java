@@ -29,6 +29,7 @@ public class Pezzi   implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="codice",nullable = false)
     private int codice;
     
     @ManyToOne(fetch=FetchType.EAGER) 
@@ -37,4 +38,33 @@ public class Pezzi   implements Serializable{
     
     @ManyToMany(fetch=FetchType.EAGER,mappedBy="pezzi")
     private List<Report>report;
+
+    public Pezzi() {
+    }
+
+    public int getCodice() {
+        return codice;
+    }
+
+    public void setCodice(int codice) {
+        this.codice = codice;
+    }
+
+    public Categorie getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categorie categoria) {
+        this.categoria = categoria;
+    }
+
+    public List<Report> getReport() {
+        return report;
+    }
+
+    public void setReport(List<Report> report) {
+        this.report = report;
+    }
+    
+    
 }

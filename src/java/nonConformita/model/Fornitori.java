@@ -25,11 +25,40 @@ import javax.persistence.Table;
 public class Fornitori  implements Serializable{
 
     @Id
-    @Column(name = "piva")
+    @Column(name = "piva",nullable = false)
     private String piva;
-    @Column(name = "nomeFornitore")
+    @Column(name = "nomeFornitore",nullable = false)
     private String nomeFornitore;
     
     @OneToMany(fetch=FetchType.EAGER,mappedBy="fornitore")
     private List<Report>report;
+
+    public Fornitori() {
+    }
+
+    public String getPiva() {
+        return piva;
+    }
+
+    public void setPiva(String piva) {
+        this.piva = piva;
+    }
+
+    public String getNomeFornitore() {
+        return nomeFornitore;
+    }
+
+    public void setNomeFornitore(String nomeFornitore) {
+        this.nomeFornitore = nomeFornitore;
+    }
+
+    public List<Report> getReport() {
+        return report;
+    }
+
+    public void setReport(List<Report> report) {
+        this.report = report;
+    }
+    
+    
 }

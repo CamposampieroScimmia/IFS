@@ -24,13 +24,39 @@ import javax.persistence.Table;
 @Table(name="Categorie")
 public class Categorie implements Serializable{
     @Id
-    @Column(name = "categoria")
+    @Column(name = "categoria",nullable = false)
     private String categoria;
     @Column(name = "note", nullable = false)
     private String note;
     
-    
     @OneToMany(fetch=FetchType.EAGER,mappedBy="categoria")
     private List<Pezzi> pezzi;
+
+    public Categorie() {
+    }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
+    public List<Pezzi> getPezzi() {
+        return pezzi;
+    }
+
+    public void setPezzi(List<Pezzi> pezzi) {
+        this.pezzi = pezzi;
+    }
 
 }

@@ -22,12 +22,39 @@ import javax.persistence.Table;
 @Table(name="Clienti")
 public class Clienti  implements Serializable{
     @Id
-    @Column(name="piva")
+    @Column(name="piva",nullable = false)
     private String piva;
     @Column(name="nomeCliente", nullable = false)
     private String nomeCliente;
     
     @OneToMany(fetch=FetchType.EAGER,mappedBy="cliente")
     private List<Report>report;
-    
+
+    public Clienti() {
+    }
+
+    public String getPiva() {
+        return piva;
+    }
+
+    public void setPiva(String piva) {
+        this.piva = piva;
+    }
+
+    public String getNomeCliente() {
+        return nomeCliente;
+    }
+
+    public void setNomeCliente(String nomeCliente) {
+        this.nomeCliente = nomeCliente;
+    }
+
+    public List<Report> getReport() {
+        return report;
+    }
+
+    public void setReport(List<Report> report) {
+        this.report = report;
+    }
+      
 }

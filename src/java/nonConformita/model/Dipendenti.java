@@ -10,6 +10,8 @@ import java.util.List;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -35,6 +37,7 @@ public class Dipendenti implements Serializable {
     private String nome;
     @Column(name = "cognome", nullable = false)
     private String cognome;
+    @Enumerated(EnumType.STRING)
     @Column(name = "ruolo", nullable = false)
     private Ruolo ruolo;
      
@@ -47,8 +50,74 @@ public class Dipendenti implements Serializable {
     @ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="reparto")
     private Reparti reparto;
-
+    
     public Dipendenti() {
+    }
+
+    public String getMatricola() {
+        return matricola;
+    }
+
+    public void setMatricola(String matricola) {
+        this.matricola = matricola;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getCognome() {
+        return cognome;
+    }
+
+    public void setCognome(String cognome) {
+        this.cognome = cognome;
+    }
+
+    @Enumerated(EnumType.STRING)
+    public Ruolo getRuolo() {
+        return ruolo;
+    }
+
+    @Enumerated(EnumType.STRING)
+    public void setRuolo(Ruolo ruolo) {
+        this.ruolo = ruolo;
+    }
+
+    public List<Segnalazioni> getSegnalazioni() {
+        return segnalazioni;
+    }
+
+    public void setSegnalazioni(List<Segnalazioni> segnalazioni) {
+        this.segnalazioni = segnalazioni;
+    }
+
+    public List<Elaborazioni> getElaborazioni() {
+        return elaborazioni;
+    }
+
+    public void setElaborazioni(List<Elaborazioni> elaborazioni) {
+        this.elaborazioni = elaborazioni;
+    }
+
+    public Reparti getReparto() {
+        return reparto;
+    }
+
+    public void setReparto(Reparti reparto) {
+        this.reparto = reparto;
     }
 
 }

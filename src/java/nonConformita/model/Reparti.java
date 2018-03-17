@@ -25,7 +25,7 @@ import javax.persistence.Table;
 @Table(name="Reparti")
 public class Reparti  implements Serializable{
     @Id
-    @Column(name="nome")
+    @Column(name="nome",nullable = false)
     private String nome;
     
     @OneToMany(fetch=FetchType.EAGER,mappedBy="reparto")
@@ -33,4 +33,33 @@ public class Reparti  implements Serializable{
     
     @OneToMany(fetch=FetchType.EAGER,mappedBy="reparto")
     private List<Report>report;
+
+    public Reparti() {
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public List<Dipendenti> getDipendenti() {
+        return dipendenti;
+    }
+
+    public void setDipendenti(List<Dipendenti> dipendenti) {
+        this.dipendenti = dipendenti;
+    }
+
+    public List<Report> getReport() {
+        return report;
+    }
+
+    public void setReport(List<Report> report) {
+        this.report = report;
+    }
+    
+    
 }
