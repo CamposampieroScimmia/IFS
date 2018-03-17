@@ -14,7 +14,7 @@ import nonConformita.model.Segnalazioni;
  */
 public interface SegnalazioniDao {
     Segnalazioni findByCodice(int codice);
-    void saveSegnalazione(Segnalazioni cliente);
+    void saveSegnalazione(Segnalazioni segnalazione);
     void deleteSegnalazione(int codice);
     List<Segnalazioni> findAllSegnalazioni();
 }
