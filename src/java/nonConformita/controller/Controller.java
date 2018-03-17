@@ -26,7 +26,7 @@ import org.springframework.context.annotation.ComponentScan;
 public class Controller {
  
     @Autowired
-     
+  
     @RequestMapping(value = { "/"}, method = RequestMethod.GET)
     public String login(ModelMap model) {
 

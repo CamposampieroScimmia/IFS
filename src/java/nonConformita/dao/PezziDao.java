@@ -5,10 +5,16 @@
  */
 package nonConformita.dao;
 
+import java.util.List;
+import nonConformita.model.Pezzi;
+
 /**
  *
  * @author FSEVERI\lucangeli3503
  */
 public interface PezziDao {
-    
+    Pezzi findByCodice(int codice);
+    void savePezzo(Pezzi pezzo);
+    void deletePezzo(int codice);
+    List<Pezzi> findAllPezzi();
 }

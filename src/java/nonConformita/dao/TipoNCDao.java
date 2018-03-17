@@ -5,10 +5,16 @@
  */
 package nonConformita.dao;
 
+import java.util.List;
+import nonConformita.model.TipoNC;
+
 /**
  *
  * @author FSEVERI\lucangeli3503
  */
 public interface TipoNCDao {
-    
+    TipoNC findByNome(String nome);
+    void saveTipoNC(TipoNC tipoNC);
+    void deleteTipoNC(String nome);
+    List<TipoNC> findAllTipoNC();
 }
