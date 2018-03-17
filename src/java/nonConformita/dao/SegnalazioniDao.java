@@ -7,6 +7,9 @@ package nonConformita.dao;
 import java.util.List;
 import nonConformita.model.Segnalazioni;
 
+import java.util.List;
+import nonConformita.model.Segnalazioni;
+
 /**
  *
  * @author FSEVERI\lucangeli3503

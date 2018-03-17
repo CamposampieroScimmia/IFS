@@ -11,8 +11,8 @@ import nonConformita.model.Dipendenti;
  * @author FSEVERI\lucangeli3503
  */
 public interface DipendenteDao {
-     Dipendenti findByMatricola(String matricola);
+    Dipendenti findByMatricola(String matricola);
     void saveDipendente(Dipendenti dipendente);
     void deleteDipendente(String matricola);
-List<Dipendenti> findAllDipendenti();
+    List<Dipendenti> findAllDipendenti();
 }

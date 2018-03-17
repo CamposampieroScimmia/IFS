@@ -13,7 +13,7 @@ import nonConformita.model.Categorie;
  * @author FSEVERI\lucangeli3503
  */
 public interface CategoriaDao {
-       Categorie findByCategoria(String Categoria);
+    Categorie findByCategoria(String Categoria);
     void saveCategoria(Categorie categoria);
     void deleteCategoria(String Categoria);
     List<Categorie> findAllCategorie();
