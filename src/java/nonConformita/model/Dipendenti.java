@@ -86,12 +86,10 @@ public class Dipendenti implements Serializable {
         this.cognome = cognome;
     }
 
-    @Enumerated(EnumType.STRING)
     public Ruolo getRuolo() {
         return ruolo;
     }
 
-    @Enumerated(EnumType.STRING)
     public void setRuolo(Ruolo ruolo) {
         this.ruolo = ruolo;
     }

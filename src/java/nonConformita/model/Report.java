@@ -130,12 +130,10 @@ public class Report implements Serializable {
         this.dataFine = dataFine;
     }
 
-    @Enumerated(EnumType.STRING)
     public Stato getStato() {
         return stato;
     }
 
-    @Enumerated(EnumType.STRING)
     public void setStato(Stato stato) {
         this.stato = stato;
     }
