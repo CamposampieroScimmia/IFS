@@ -35,8 +35,7 @@ public class ReportServiceImpl implements ReportService{
         if(entity!=null){
             entity.setDescrizioneProb(report.getDescrizioneProb());
             entity.setDataInizio(report.getDataInizio());
-            entity.setDataFine(report.getDataFine());
-            entity.setStato(report.getStato());
+            entity.setDataFine(report.getDataFine());   
             entity.setCause(report.getCause());
             entity.setTeamOp(report.getTeamOp());
             entity.setAzioniCorrettive(report.getAzioniCorrettive());

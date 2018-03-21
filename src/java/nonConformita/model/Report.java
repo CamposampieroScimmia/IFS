@@ -43,9 +43,6 @@ public class Report implements Serializable {
     private Date dataInizio;
     @Column(name = "dataFine")
     private Date dataFine;
-    @Enumerated(EnumType.STRING)
-    @Column(name = "stato" )
-    private Stato stato;
     @Column(name = "cause")
     private String cause;
     @Column(name = "teamOp")
@@ -126,13 +123,6 @@ public class Report implements Serializable {
         this.dataFine = dataFine;
     }
 
-    public Stato getStato() {
-        return stato;
-    }
-
-    public void setStato(Stato stato) {
-        this.stato = stato;
-    }
 
     public String getCause() {
         return cause;
