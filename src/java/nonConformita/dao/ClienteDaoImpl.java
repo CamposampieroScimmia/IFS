@@ -11,11 +11,13 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author FSEVERI\lucangeli3503
  */
+@Repository("clienteDao")
 public class ClienteDaoImpl implements ClienteDao{
      @Autowired
     private SessionFactory sessionFactory;

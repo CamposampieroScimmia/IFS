@@ -18,7 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service("dipendenteService")
 @Transactional
-public class DipendentiServiceImpl implements DipendentiService {
+public class DipendenteServiceImpl implements DipendenteService {
 @Autowired
     private DipendenteDao dao;
      

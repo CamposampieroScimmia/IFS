@@ -12,7 +12,7 @@ import nonConformita.model.Dipendenti;
  *
  * @author FSEVERI\lucangeli3503
  */
-public interface DipendentiService {
+public interface DipendenteService {
     Dipendenti findByMatricola(String matricola);
     void saveDipendente(Dipendenti dipendente);
     void updateDipendente(Dipendenti dipendente);
