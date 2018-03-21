@@ -6,7 +6,7 @@
 package nonConformita.model;
 
 import java.io.Serializable;
-import java.util.List;
+import java.util.Set;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -41,13 +41,13 @@ public class Dipendenti implements Serializable {
     @Column(name = "ruolo", nullable = false)
     private Ruolo ruolo;
      
-    @OneToMany(fetch=FetchType.EAGER,mappedBy="dipendente")
-    private List<Segnalazioni>segnalazioni;
+    @OneToMany(fetch=FetchType.LAZY,mappedBy="dipendente")
+    private Set<Segnalazioni>segnalazioni;
     
-    @OneToMany(fetch=FetchType.EAGER,mappedBy="dipendente")
-    private List<Elaborazioni>elaborazioni;
+    @OneToMany(fetch=FetchType.LAZY,mappedBy="dipendente")
+    private Set<Elaborazioni>elaborazioni;
     
-    @ManyToOne(fetch=FetchType.EAGER)
+    @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="reparto")
     private Reparti reparto;
     
@@ -94,19 +94,19 @@ public class Dipendenti implements Serializable {
         this.ruolo = ruolo;
     }
 
-    public List<Segnalazioni> getSegnalazioni() {
+    public Set<Segnalazioni> getSegnalazioni() {
         return segnalazioni;
     }
 
-    public void setSegnalazioni(List<Segnalazioni> segnalazioni) {
+    public void setSegnalazioni(Set<Segnalazioni> segnalazioni) {
         this.segnalazioni = segnalazioni;
     }
 
-    public List<Elaborazioni> getElaborazioni() {
+    public Set<Elaborazioni> getElaborazioni() {
         return elaborazioni;
     }
 
-    public void setElaborazioni(List<Elaborazioni> elaborazioni) {
+    public void setElaborazioni(Set<Elaborazioni> elaborazioni) {
         this.elaborazioni = elaborazioni;
     }
 

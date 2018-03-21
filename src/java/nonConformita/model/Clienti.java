@@ -6,7 +6,7 @@
 package nonConformita.model;
 
 import java.io.Serializable;
-import java.util.List;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -27,8 +27,8 @@ public class Clienti  implements Serializable{
     @Column(name="nomeCliente", nullable = false)
     private String nomeCliente;
     
-    @OneToMany(fetch=FetchType.EAGER,mappedBy="cliente")
-    private List<Report>report;
+    @OneToMany(fetch=FetchType.LAZY,mappedBy="cliente")
+    private Set<Report>report;
 
     public Clienti() {
     }
@@ -49,11 +49,11 @@ public class Clienti  implements Serializable{
         this.nomeCliente = nomeCliente;
     }
 
-    public List<Report> getReport() {
+    public Set<Report> getReport() {
         return report;
     }
 
-    public void setReport(List<Report> report) {
+    public void setReport(Set<Report> report) {
         this.report = report;
     }
       

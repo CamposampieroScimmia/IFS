@@ -38,11 +38,11 @@ public class Elaborazioni implements Serializable {
     @Column(name = "dataF")
     private Date dataF;
     
-    @ManyToOne(fetch=FetchType.EAGER)
+    @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="dipendente")
     private Dipendenti dipendente;
     
-    @ManyToOne(fetch=FetchType.EAGER)
+    @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="report")
     private Report report;
 

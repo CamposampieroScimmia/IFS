@@ -7,7 +7,7 @@ package nonConformita.model;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
+import java.util.Set;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -63,30 +63,26 @@ public class Report implements Serializable {
     @Column(name = "revisioneFinale")
     private String revisioneF;
 
-    @OneToMany(fetch=FetchType.EAGER,mappedBy = "report")
-    private List<Report> report;
+    @OneToMany(fetch=FetchType.LAZY,mappedBy = "report")
+    private Set<Report> report;
 
-    @ManyToOne(fetch=FetchType.EAGER)
-    @JoinColumn(name = "pezzo")
-    private Pezzi pezzo;
-
-    @ManyToOne(fetch=FetchType.EAGER)
+    @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name = "tipoNC")
     private TipoNC tipoNC;
 
-    @ManyToOne(fetch=FetchType.EAGER)
+    @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name = "fornitore")
     private Fornitori fornitore;
 
-    @ManyToOne(fetch=FetchType.EAGER)
+    @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name = "reparto")
     private Reparti reparto;
 
-    @ManyToOne(fetch=FetchType.EAGER)
+    @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name = "cliente")
     private Clienti cliente;
     
-    @ManyToMany(fetch=FetchType.EAGER)
+    @ManyToMany(fetch=FetchType.LAZY)
         @JoinTable(
         name = "Report_Pezzi", 
         joinColumns = { @JoinColumn(name = "codiceNC") }, 
@@ -202,20 +198,12 @@ public class Report implements Serializable {
         this.revisioneF = revisioneF;
     }
 
-    public List<Report> getReport() {
+    public Set<Report> getReport() {
         return report;
     }
 
-    public void setReport(List<Report> report) {
+    public void setReport(Set<Report> report) {
         this.report = report;
-    }
-
-    public Pezzi getPezzo() {
-        return pezzo;
-    }
-
-    public void setPezzo(Pezzi pezzo) {
-        this.pezzo = pezzo;
     }
 
     public TipoNC getTipoNC() {

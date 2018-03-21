@@ -5,7 +5,7 @@
  */
 package nonConformita.controller;
 
-import java.util.List;
+
 
 
 /**
@@ -25,12 +25,10 @@ import org.springframework.context.annotation.ComponentScan;
 @ComponentScan("nonConformita.dao")
 public class Controller {
  
-    @Autowired
-  
     @RequestMapping(value = { "/"}, method = RequestMethod.GET)
     public String login(ModelMap model) {
 
-        return "login";
+        return "index";
     }
  
 }
