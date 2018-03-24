@@ -37,15 +37,35 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 
-	    http.authorizeRequests().antMatchers("/admin/**")
-		.access("hasRole('ROLE_ADMIN')").and().formLogin()
+	    http.authorizeRequests().antMatchers("/dipendente/**")
+		.access("hasRole('ROLE_dipendente')").and().formLogin()
 		.loginPage("/login").failureUrl("/login?error")
 		.usernameParameter("username")
 		.passwordParameter("password")
 		.and().logout().logoutSuccessUrl("/login?logout")
 		.and().csrf()
 		.and().exceptionHandling().accessDeniedPage("/403");
-	}
+            
+        
+            http.authorizeRequests().antMatchers("/responsabileQualita/**")
+		.access("hasRole('ROLE_responsabileQualita')").and().formLogin()
+		.loginPage("/login").failureUrl("/login?error")
+		.usernameParameter("username")
+		.passwordParameter("password")
+		.and().logout().logoutSuccessUrl("/login?logout")
+		.and().csrf()
+		.and().exceptionHandling().accessDeniedPage("/403");
+            
+
+            http.authorizeRequests().antMatchers("/manager/**")
+		.access("hasRole('ROLE_manager')").and().formLogin()
+		.loginPage("/login").failureUrl("/login?error")
+		.usernameParameter("username")
+		.passwordParameter("password")
+		.and().logout().logoutSuccessUrl("/login?logout")
+		.and().csrf()
+		.and().exceptionHandling().accessDeniedPage("/403");
+            }
 	
 	@Bean
 	public PasswordEncoder passwordEncoder(){
