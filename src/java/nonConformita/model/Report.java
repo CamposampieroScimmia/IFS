@@ -35,29 +35,29 @@ public class Report implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "codiceNC",nullable=false)
+    @Column(name = "codiceNC",nullable=false,length=11)
     private int codiceNC;
-    @Column(name = "descrizioneProb")
+    @Column(name = "descrizioneProb",length=200)
     private String descrizioneProb;
     @Column(name = "dataInizio", nullable = false)
     private Date dataInizio;
     @Column(name = "dataFine")
     private Date dataFine;
-    @Column(name = "cause")
+    @Column(name = "cause",length=150)
     private String cause;
-    @Column(name = "teamOp")
+    @Column(name = "teamOp",length=150)
     private String teamOp;
-    @Column(name = "azioniCorrettive")
+    @Column(name = "azioniCorrettive",length=200)
     private String azioniCorrettive;
-    @Column(name = "efficaciaAC")
+    @Column(name = "efficaciaAC",length=150)
     private String efficaciaAC;
-    @Column(name = "azioniContenitive")
+    @Column(name = "azioniContenitive",length=150)
     private String azioniContenitive;
-    @Column(name = "prevenzione")
+    @Column(name = "prevenzione",length=150)
     private String prevenzione;
-    @Column(name = "costo")
+    @Column(name = "costo",length=10 , precision=4)
     private int costo;
-    @Column(name = "revisioneFinale")
+    @Column(name = "revisioneFinale",length=200)
     private String revisioneF;
 
     @OneToMany(fetch=FetchType.LAZY,mappedBy = "report")

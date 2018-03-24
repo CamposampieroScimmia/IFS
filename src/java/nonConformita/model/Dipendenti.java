@@ -29,16 +29,16 @@ import javax.persistence.Table;
 public class Dipendenti implements Serializable {
 
     @Id
-    @Column(name = "matricola", nullable = false)
+    @Column(name = "matricola", nullable = false, length=8)
     private String matricola;
-    @Column(name = "password", nullable = false)
+    @Column(name = "password", nullable = false, length=20)
     private String password;
-    @Column(name = "nome", nullable = false)
+    @Column(name = "nome", nullable = false, length=20)
     private String nome;
-    @Column(name = "cognome", nullable = false)
+    @Column(name = "cognome", nullable = false, length=20)
     private String cognome;
     @Enumerated(EnumType.STRING)
-    @Column(name = "ruolo", nullable = false)
+    @Column(name = "ruolo", nullable = false, length=20)
     private Ruolo ruolo;
      
     @OneToMany(fetch=FetchType.LAZY,mappedBy="dipendente")

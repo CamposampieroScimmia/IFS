@@ -29,7 +29,7 @@ public class Pezzi   implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="codice",nullable = false)
+    @Column(name="codice",nullable = false, length=11)
     private int codice;
     
     @ManyToOne(fetch=FetchType.LAZY) 

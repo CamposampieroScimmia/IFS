@@ -22,9 +22,9 @@ import javax.persistence.Table;
 @Table(name="Clienti")
 public class Clienti  implements Serializable{
     @Id
-    @Column(name="piva",nullable = false)
+    @Column(name="piva",nullable = false,length=11)
     private String piva;
-    @Column(name="nomeCliente", nullable = false)
+    @Column(name="nomeCliente", nullable = false, length=30)
     private String nomeCliente;
     
     @OneToMany(fetch=FetchType.LAZY,mappedBy="cliente")
