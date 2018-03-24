@@ -91,6 +91,11 @@ public class Report implements Serializable {
     public Report() {
     }
 
+    public Report(String descrizioneProb, Date dataInizio) {
+        this.descrizioneProb = descrizioneProb;
+        this.dataInizio = dataInizio;
+    }
+    
     public int getCodiceNC() {
         return codiceNC;
     }
