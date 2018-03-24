@@ -25,7 +25,7 @@ import javax.persistence.Table;
 @Table(name="Reparti")
 public class Reparti  implements Serializable{
     @Id
-    @Column(name="nome",nullable = false)
+    @Column(name="nome",nullable = false, length=20)
     private String nome;
     
     @OneToMany(fetch=FetchType.LAZY,mappedBy="reparto")

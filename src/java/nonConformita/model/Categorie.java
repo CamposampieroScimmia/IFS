@@ -24,9 +24,9 @@ import javax.persistence.Table;
 @Table(name="Categorie")
 public class Categorie implements Serializable{
     @Id
-    @Column(name = "categoria",nullable = false)
+    @Column(name = "categoria",nullable = false, length=50 )
     private String categoria;
-    @Column(name = "note", nullable = false)
+    @Column(name = "note", nullable = false, length=50)
     private String note;
     
     @OneToMany(fetch=FetchType.LAZY,mappedBy="categoria")

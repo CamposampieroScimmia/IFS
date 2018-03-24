@@ -25,9 +25,9 @@ import javax.persistence.Table;
 public class TipoNC  implements Serializable {
 
     @Id
-    @Column(name = "nome", nullable = false)
+    @Column(name = "nome", nullable = false,length=20)
     private String nome;
-    @Column(name = "descrizione", nullable = false)
+    @Column(name = "descrizione", nullable = false,length=50)
     private String descrizione;
     
     @OneToMany(fetch=FetchType.LAZY,mappedBy="tipoNC")

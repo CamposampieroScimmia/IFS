@@ -25,9 +25,9 @@ import javax.persistence.Table;
 public class Fornitori  implements Serializable{
 
     @Id
-    @Column(name = "piva",nullable = false)
+    @Column(name = "piva",nullable = false, length=11)
     private String piva;
-    @Column(name = "nomeFornitore",nullable = false)
+    @Column(name = "nomeFornitore",nullable = false, length=30)
     private String nomeFornitore;
     
     @OneToMany(fetch=FetchType.LAZY,mappedBy="fornitore")

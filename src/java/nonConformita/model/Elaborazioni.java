@@ -29,9 +29,9 @@ public class Elaborazioni implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "ID", nullable = false)
+    @Column(name = "ID", nullable = false, length=11)
     private int ID;
-    @Column(name = "descrizione", nullable = false)
+    @Column(name = "descrizione", nullable = false, length=200)
     private String descrizione;
     @Column(name = "dataI", nullable = false)
     private Date dataI;
