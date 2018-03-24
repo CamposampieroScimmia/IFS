@@ -32,11 +32,11 @@ public class Pezzi   implements Serializable{
     @Column(name="codice",nullable = false, length=11)
     private int codice;
     
-    @ManyToOne(fetch=FetchType.LAZY) 
+    @ManyToOne(fetch=FetchType.EAGER) 
     @JoinColumn(name="categoria")
     private Categorie categoria;
     
-    @ManyToMany(fetch=FetchType.LAZY,mappedBy="pezzi")
+    @ManyToMany(fetch=FetchType.EAGER,mappedBy="pezzi")
     private Set<Report>report;
 
     public Pezzi() {

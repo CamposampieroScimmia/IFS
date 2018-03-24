@@ -30,7 +30,7 @@ public class TipoNC  implements Serializable {
     @Column(name = "descrizione", nullable = false,length=50)
     private String descrizione;
     
-    @OneToMany(fetch=FetchType.LAZY,mappedBy="tipoNC")
+    @OneToMany(fetch=FetchType.EAGER,mappedBy="tipoNC")
     private Set<Report>report;
 
     public TipoNC() {

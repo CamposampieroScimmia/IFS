@@ -43,13 +43,13 @@ public class Dipendenti implements Serializable {
     @Column(name = "ruolo", nullable = false, length=20)
     private Ruolo ruolo;
      
-    @OneToMany(fetch=FetchType.LAZY,mappedBy="dipendente")
+    @OneToMany(fetch=FetchType.EAGER,mappedBy="dipendente")
     private Set<Segnalazioni>segnalazioni;
     
-    @OneToMany(fetch=FetchType.LAZY,mappedBy="dipendente")
+    @OneToMany(fetch=FetchType.EAGER,mappedBy="dipendente")
     private Set<Elaborazioni>elaborazioni;
     
-    @ManyToOne(fetch=FetchType.LAZY)
+    @ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="reparto")
     private Reparti reparto;
     

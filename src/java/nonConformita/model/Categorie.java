@@ -29,7 +29,7 @@ public class Categorie implements Serializable{
     @Column(name = "note", nullable = false, length=50)
     private String note;
     
-    @OneToMany(fetch=FetchType.LAZY,mappedBy="categoria")
+    @OneToMany(fetch=FetchType.EAGER,mappedBy="categoria")
     private Set<Pezzi> pezzi;
 
     public Categorie() {

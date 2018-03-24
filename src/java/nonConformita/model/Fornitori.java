@@ -30,7 +30,7 @@ public class Fornitori  implements Serializable{
     @Column(name = "nomeFornitore",nullable = false, length=30)
     private String nomeFornitore;
     
-    @OneToMany(fetch=FetchType.LAZY,mappedBy="fornitore")
+    @OneToMany(fetch=FetchType.EAGER,mappedBy="fornitore")
     private Set<Report>report;
 
     public Fornitori() {

@@ -28,10 +28,10 @@ public class Reparti  implements Serializable{
     @Column(name="nome",nullable = false, length=20)
     private String nome;
     
-    @OneToMany(fetch=FetchType.LAZY,mappedBy="reparto")
+    @OneToMany(fetch=FetchType.EAGER,mappedBy="reparto")
     private Set<Dipendenti>dipendenti;
     
-    @OneToMany(fetch=FetchType.LAZY,mappedBy="reparto")
+    @OneToMany(fetch=FetchType.EAGER,mappedBy="reparto")
     private Set<Report>report;
 
     public Reparti() {

@@ -27,7 +27,7 @@ public class Clienti  implements Serializable{
     @Column(name="nomeCliente", nullable = false, length=30)
     private String nomeCliente;
     
-    @OneToMany(fetch=FetchType.LAZY,mappedBy="cliente")
+    @OneToMany(fetch=FetchType.EAGER,mappedBy="cliente")
     private Set<Report>report;
 
     public Clienti() {

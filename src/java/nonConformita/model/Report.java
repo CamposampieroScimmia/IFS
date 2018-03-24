@@ -60,26 +60,26 @@ public class Report implements Serializable {
     @Column(name = "revisioneFinale",length=200)
     private String revisioneF;
 
-    @OneToMany(fetch=FetchType.LAZY,mappedBy = "report")
+    @OneToMany(fetch=FetchType.EAGER,mappedBy = "report")
     private Set<Report> report;
 
-    @ManyToOne(fetch=FetchType.LAZY)
+    @ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name = "tipoNC")
     private TipoNC tipoNC;
 
-    @ManyToOne(fetch=FetchType.LAZY)
+    @ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name = "fornitore")
     private Fornitori fornitore;
 
-    @ManyToOne(fetch=FetchType.LAZY)
+    @ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name = "reparto")
     private Reparti reparto;
 
-    @ManyToOne(fetch=FetchType.LAZY)
+    @ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name = "cliente")
     private Clienti cliente;
     
-    @ManyToMany(fetch=FetchType.LAZY)
+    @ManyToMany(fetch=FetchType.EAGER)
         @JoinTable(
         name = "Report_Pezzi", 
         joinColumns = { @JoinColumn(name = "codiceNC") }, 

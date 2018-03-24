@@ -33,7 +33,7 @@ public class Segnalazioni implements Serializable {
     @Column(name="data", nullable=false)
     private Date data;
 
-    @ManyToOne(fetch=FetchType.LAZY)
+    @ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="dipendente")
     private Dipendenti dipendente;
 
