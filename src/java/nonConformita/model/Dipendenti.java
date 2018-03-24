@@ -37,6 +37,8 @@ public class Dipendenti implements Serializable {
     private String nome;
     @Column(name = "cognome", nullable = false)
     private String cognome;
+    @Column(name = "enabled", nullable = false)
+    private boolean enabled;
     @Enumerated(EnumType.STRING)
     @Column(name = "ruolo", nullable = false)
     private Ruolo ruolo;
@@ -57,6 +59,15 @@ public class Dipendenti implements Serializable {
     public String getMatricola() {
         return matricola;
     }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+    
 
     public void setMatricola(String matricola) {
         this.matricola = matricola;

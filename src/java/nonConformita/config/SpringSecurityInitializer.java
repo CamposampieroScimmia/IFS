@@ -3,14 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package nonConformita.model;
+package nonConformita.config;
 
 /**
  *
  * @author FSEVERI\lucangeli3503
  */
-public enum Ruolo {
-    dipendente,
-    responsabileQualita,
-    manager;
+
+import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
+
+public class SpringSecurityInitializer extends AbstractSecurityWebApplicationInitializer {
+
 }
