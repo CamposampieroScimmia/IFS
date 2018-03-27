@@ -39,6 +39,12 @@ public class Segnalazioni implements Serializable {
 
     public Segnalazioni() {
     }
+    
+    public Segnalazioni(int codice, String descrizione, Date data){
+        this.codice=codice;
+        this.descrizione=descrizione;
+        this.data=data;
+    }
 
     public int getCodice() {
         return codice;
