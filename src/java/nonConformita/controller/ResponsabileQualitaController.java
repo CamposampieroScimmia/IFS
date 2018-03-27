@@ -49,7 +49,7 @@ public class ResponsabileQualitaController {
         }
         model.addAttribute("segnalazioni", segnalazioni);
         
-        return "/responsabileQualita/SegnalazioniLista";
+        return "SegnalazioniLista";
     }
     
     @RequestMapping(value = { "/responsabileQualita/nonConformita" }, method = RequestMethod.GET)
@@ -57,6 +57,7 @@ public class ResponsabileQualitaController {
  
         List<Report> reports = ReportService.findAllReports();
         List<Report> reportC = (List<Report>) new HashSet<Report>();
+         List<Report> reportE = (List<Report>) new HashSet<Report>();
         for(Report r: reports){
             if(!r.getReparto().equals(ControllerGen.dip.getReparto()))reports.remove(r);
         }
@@ -67,27 +68,46 @@ public class ResponsabileQualitaController {
                 reportC.add(r);
             }
         }
+        
+        for(Report r: reports){
+            if(r.getAzioniCorrettive()!=null){
+                reports.remove(r);
+                reportE.add(r);
+            }
+        }
          
         model.addAttribute("nonConformitaAperte", reports);
+        model.addAttribute("nonConformitaElaborazione", reportE);
         model.addAttribute("nonConformitaChiuse", reportC);
         
-        return "/responsabileQualita/nonConformita";
+        return "nonConformita";
     }
     
-    @RequestMapping(value = { "/responsabileQualita/addNonConformita" },params = {"dataInizio", "descProb"}, method = RequestMethod.GET)
-    public String addNonConformita(ModelMap model,@RequestParam("dataInizio") Date dataI, @RequestParam("descProb") String descrProb) {
-        ReportService.saveReport(new Report(descrProb,dataI));
-        return "/responsabileQualita/nonConformita";
+    @RequestMapping(value = { "/responsabileQualita/add" }, method = RequestMethod.GET)
+    public String add(ModelMap model) {
+        return "addNonConformita";
     }
     
-    @RequestMapping(value = {"/add"}, method = RequestMethod.POST)
+    @RequestMapping(value = { "/responsabileQualita/addNC" }, method = RequestMethod.GET)
+    public String addNonConformita(ModelMap model,@ModelAttribute("report") Report r) {
+        ReportService.saveReport(r);
+        return "nonConformita";
+    }
+    
+    
+    @RequestMapping(value = {"/resposnabileQualita/update"}, method = RequestMethod.POST)
+    public String updateNonConformita(ModelMap model) {
+        return "updateNonConformita";
+
+    }
+    @RequestMapping(value = {"/resposnabileQualita/updateNC"}, method = RequestMethod.POST)
     public String updateNonConformita(ModelMap model, @ModelAttribute("report") Report r) {
         if(r!=null){
             ReportService.updateReport(r);
             model.addAttribute("nonConformita", r);
         }
         model.addAttribute("ErrMsg", "Errore : inserire valori all'interno dei campi");
-        return "/responsabileQualita/nonConformita";
+        return "nonConformita";
 
     }
 
