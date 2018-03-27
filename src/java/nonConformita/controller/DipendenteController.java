@@ -26,6 +26,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
  *
  * @author FSEVERI\menegazzo3523
  */
+
+
 @Controller
 @RequestMapping("/Dipendente/")
 @ComponentScan("nonConformita.service")
@@ -62,6 +64,7 @@ public class DipendenteController {
         return "/dipendente/home";
     }//home
     
+        
     @RequestMapping(value = { "/dipendente/addSegnalazione" }, method = RequestMethod.GET)
     public void addSegnalazione(ModelMap model) {       
  
