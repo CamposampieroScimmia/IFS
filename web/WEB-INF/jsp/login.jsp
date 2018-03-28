@@ -5,10 +5,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="/WEB-INF/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/WEB-INF/css/bootstrap-theme.min.css">
+        <link href="resources/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+        <link href="resources/css/index.css" rel="stylesheet" type="text/css"/>
+        <link href="resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-        <script src="/WEB-INF/js/bootstrap.min.js"></script>
+        <script src="resources/js/bootstrap.min.js"></script>
         <title>Welcome to Spring Web MVC project</title>
     </head>
 
