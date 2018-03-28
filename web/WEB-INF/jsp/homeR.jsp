@@ -12,6 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello dipendente</h1>
+        <h1>Hello responsabile</h1>
     </body>
 </html>

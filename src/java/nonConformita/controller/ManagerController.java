@@ -44,7 +44,7 @@ public class ManagerController {
         List<Segnalazioni> segnalazioni = SegnalazioniService.findAllSegnalazioni();
         model.addAttribute("segnalazioni", segnalazioni);
         
-        return "SegnalazioniLista";
+        return "SegnalazioniListaM";
     }
     
     @RequestMapping(value = { "nonConformita" }, method = RequestMethod.GET)
@@ -72,7 +72,7 @@ public class ManagerController {
         model.addAttribute("nonConformitaElaborazione", reportE);
         model.addAttribute("nonConformitaChiuse", reportC);
         
-        return "nonConformita";
+        return "nonConformitaM";
     }
     
 }

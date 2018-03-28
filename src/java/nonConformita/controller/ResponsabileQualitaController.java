@@ -49,7 +49,7 @@ public class ResponsabileQualitaController {
         }
         model.addAttribute("segnalazioni", segnalazioni);
         
-        return "SegnalazioniLista";
+        return "SegnalazioniListaR";
     }
     
     @RequestMapping(value = { "/responsabileQualita/nonConformita" }, method = RequestMethod.GET)
@@ -80,34 +80,34 @@ public class ResponsabileQualitaController {
         model.addAttribute("nonConformitaElaborazione", reportE);
         model.addAttribute("nonConformitaChiuse", reportC);
         
-        return "nonConformita";
+        return "nonConformitaR";
     }
     
     @RequestMapping(value = { "/responsabileQualita/add" }, method = RequestMethod.GET)
     public String add(ModelMap model) {
-        return "addNonConformita";
+        return "addNonConformitaR";
     }
     
     @RequestMapping(value = { "/responsabileQualita/addNC" }, method = RequestMethod.GET)
     public String addNonConformita(ModelMap model,@ModelAttribute("report") Report r) {
         ReportService.saveReport(r);
-        return "nonConformita";
+        return "nonConformitaR";
     }
     
     
-    @RequestMapping(value = {"/resposnabileQualita/update"}, method = RequestMethod.POST)
+    @RequestMapping(value = {"/responsabileQualita/update"}, method = RequestMethod.POST)
     public String updateNonConformita(ModelMap model) {
-        return "updateNonConformita";
+        return "updateNonConformitaR";
 
     }
-    @RequestMapping(value = {"/resposnabileQualita/updateNC"}, method = RequestMethod.POST)
+    @RequestMapping(value = {"/responsabileQualita/updateNC"}, method = RequestMethod.POST)
     public String updateNonConformita(ModelMap model, @ModelAttribute("report") Report r) {
-        if(r!=null){
-            ReportService.updateReport(r);
-            model.addAttribute("nonConformita", r);
+        if(r==null){
+            model.addAttribute("ErrMsg", "Errore : inserire valori all'interno dei campi");
         }
-        model.addAttribute("ErrMsg", "Errore : inserire valori all'interno dei campi");
-        return "nonConformita";
+        ReportService.updateReport(r);
+        model.addAttribute("nonConformita", r);
+        return "nonConformitaR";
 
     }
 

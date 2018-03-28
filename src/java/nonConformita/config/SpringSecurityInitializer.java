@@ -10,8 +10,11 @@ package nonConformita.config;
  * @author FSEVERI\lucangeli3503
  */
 
+import org.springframework.core.annotation.Order;
 import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
+import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-public class SpringSecurityInitializer extends AbstractSecurityWebApplicationInitializer {
+@Order(1)
+public class SpringSecurityInitializer {
 
 }

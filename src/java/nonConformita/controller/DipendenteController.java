@@ -73,7 +73,7 @@ public class DipendenteController {
         model.addAttribute("nCAperte", nCAperte);
         model.addAttribute("nCChiuse", nCChiuse);
 
-        return "/dipendente/home";
+        return "homeD";
     }//home
 
     /**
@@ -88,7 +88,7 @@ public class DipendenteController {
     public String addSegnalazione(ModelMap model, @RequestParam("data") Date data, @RequestParam("codice") int codice, @RequestParam("descrizione") String descrizione) {
 
         SegnalazioniService.saveSegnalazione(new Segnalazioni(codice, descrizione, data));
-        return "/dipendente/home";
+        return "homeD";
     }//addSegnalazione
 
     /**
@@ -104,6 +104,6 @@ public class DipendenteController {
             model.addAttribute("segnalazione", s);
         }//if
         model.addAttribute("ErrMsg", "Errore : Completare i campi indicati");
-        return "/dipendente/home";
+        return "homeD";
     }//updateSegnalazione
 }
