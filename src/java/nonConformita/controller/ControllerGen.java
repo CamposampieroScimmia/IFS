@@ -39,12 +39,12 @@ public class ControllerGen {
         } else if (user.getPassword().equals(pass)) {
             dip=DipendenteService.findByMatricola(matr);
             if (user.getRuolo().equals("manager")) {
-                return " /manager/home";
+                return "homeM";
             }
             if (user.getRuolo().equals("responsabileQualita")) {
-                return " /responsabileQualita/home";
+                return " homeR";
             }
-            return " /dipendente/home";
+            return " /dipendente/homeD";
         } else {
             model.addAttribute("ErrMsg", "Errore : password sbagliata");
             return "login";
