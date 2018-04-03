@@ -29,7 +29,7 @@ public class Elaborazioni implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "ID", nullable = false, length=11)
+    @Column(name = "ID", nullable = false)
     private int ID;
     @Column(name = "descrizione", nullable = false, length=200)
     private String descrizione;

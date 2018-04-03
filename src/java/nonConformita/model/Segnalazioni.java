@@ -26,7 +26,7 @@ import javax.persistence.Table;
 public class Segnalazioni implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="codice", nullable=false,length=11)
+    @Column(name="codice", nullable=false)
     private int codice;
     @Column(name="descrizione", nullable=false,length=200)
     private String descrizione;

@@ -35,7 +35,7 @@ public class Report implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "codiceNC",nullable=false,length=11)
+    @Column(name = "codiceNC",nullable=false)
     private int codiceNC;
     @Column(name = "descrizioneProb",length=200)
     private String descrizioneProb;

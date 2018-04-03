@@ -40,6 +40,11 @@ public class ResponsabileQualitaController {
     ReportService ReportService;
      
     
+    @RequestMapping(value = { "/responsabileQualita/home" }, method = RequestMethod.GET)
+    public String home(ModelMap model) {
+ 
+        return "homeR";
+    }
     @RequestMapping(value = { "/responsabileQualita/SegnalazioniLista" }, method = RequestMethod.GET)
     public String listaSegnalazioni(ModelMap model) {
  

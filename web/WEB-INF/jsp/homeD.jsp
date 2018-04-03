@@ -19,6 +19,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello dipendente</h1>
+        <h1>pagina principale dipendente</h1>
     </body>
 </html>

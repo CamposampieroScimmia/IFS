@@ -12,6 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello manager</h1>
+        <h1>pagina principale manager</h1>
     </body>
 </html>

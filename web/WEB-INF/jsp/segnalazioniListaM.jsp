@@ -1,7 +1,7 @@
 <%-- 
-    Document   : home
-    Created on : 27-mar-2018, 13.40.26
-    Author     : FSEVERI\lucangeli3503
+    Document   : SegnalazioniListaM
+    Created on : 3-apr-2018, 15.25.19
+    Author     : Riccardo
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -12,6 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>pagina principale responsabile</h1>
+        <h1>segnalazioni viste dal manager</h1>
     </body>
 </html>

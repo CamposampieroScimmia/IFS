@@ -1,7 +1,7 @@
 <%-- 
-    Document   : home
-    Created on : 27-mar-2018, 13.40.26
-    Author     : FSEVERI\lucangeli3503
+    Document   : nonConformitaM
+    Created on : 3-apr-2018, 15.25.58
+    Author     : Riccardo
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -12,6 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>pagina principale responsabile</h1>
+        <h1>vista  del manager di tutte le nc divise  </h1>
     </body>
 </html>

@@ -38,6 +38,12 @@ public class ManagerController {
     ReportService ReportService;
      
     
+     @RequestMapping(value = { "/manager/home" }, method = RequestMethod.GET)
+    public String home(ModelMap model) {
+ 
+        return "homeM";
+    }
+    
     @RequestMapping(value = { "/manager/SegnalazioniLista" }, method = RequestMethod.GET)
     public String listaSegnalazioni(ModelMap model) {
  
@@ -47,7 +53,7 @@ public class ManagerController {
         return "SegnalazioniListaM";
     }
     
-    @RequestMapping(value = { "nonConformita" }, method = RequestMethod.GET)
+    @RequestMapping(value = { "/manager/nonConformita" }, method = RequestMethod.GET)
     public String nonConformita(ModelMap model) {
  
         List<Report> reports = ReportService.findAllReports();

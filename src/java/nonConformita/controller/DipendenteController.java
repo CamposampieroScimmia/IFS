@@ -29,9 +29,8 @@ import org.springframework.web.bind.annotation.RequestParam;
  *
  * @author FSEVERI\menegazzo3523
  */
-
 @Controller
-@RequestMapping("/Dipendente/")
+@RequestMapping("/dipendente/")
 @ComponentScan("nonConformita.service")
 public class DipendenteController {
 
@@ -42,68 +41,53 @@ public class DipendenteController {
     @Autowired
     SegnalazioniService SegnalazioniService;
 
-    /**
-     * Metodo che consente la visualizzazione della non conformità aperte, in fase di elaborazione e chiuse
-     * @param model: 
-     * @return 
-     */
     @RequestMapping(value = {"/dipendente/home"}, method = RequestMethod.GET)
     public String home(ModelMap model) {
 
-        Set<Report> tmpR = new HashSet<Report>();
-        Set<Report> nCAperte = new HashSet<Report>();
-        Set<Report> nCChiuse = new HashSet<Report>();
-        Set<Report> nCElaborazione = new HashSet<Report>();
+        Set<Report> ncAperte = new HashSet<Report>();
+        Set<Report> ncChiuse = new HashSet<Report>();
+        Set<Report> ncElaborazione = new HashSet<Report>();
+
         Dipendenti tmp = DipendenteService.findByMatricola(ControllerGen.dip.getMatricola());
         List<Elaborazioni> tmpE = (List<Elaborazioni>) tmp.getElaborazioni();
         for (Elaborazioni e : tmpE) {
-            tmpR.add(e.getReport());
-        }//for
+            ncAperte.add(e.getReport());
+        }
 
-        for (Report r : tmpR) {
-            if (r.getDataFine() == null) {
-                nCAperte.add(r);
-            }//if
-            if (r.getAzioniCorrettive() != null && r.getDataFine() == null) {
-                nCElaborazione.add(r);
-            }//if
-            nCChiuse.add(r);
-        }//for
+        for (Report r : ncAperte) {
+            if (r.getDataFine() != null) {
+                ncChiuse.add(r);
+                ncAperte.remove(r);
+            }
+        }
+        for (Report r : ncAperte) {
+            if (r.getAzioniCorrettive() != null) {
+                ncElaborazione.add(r);
+            } else {
+                ncAperte.add(r);
+            }
+        }
 
-        model.addAttribute("nCAperte", nCAperte);
-        model.addAttribute("nCChiuse", nCChiuse);
+        model.addAttribute("nCAperte", ncAperte);
+        model.addAttribute("nCElaborazione", ncElaborazione);
+        model.addAttribute("nCChiuse", ncChiuse);
 
         return "homeD";
     }//home
 
-    /**
-     * Metodo che consente al dipendente di effettuare una nuova segnalazione.
-     * @param model
-     * @param data attributo inerente alla Segnalazione
-     * @param codice attributo inerente alla Segnalazione
-     * @param descrizione attributo inerente alla Segnalazione
-     * @return 
-     */
-    @RequestMapping(value = {"/dipendente/addSegnalazione"}, params = {"codice", "descrizione", "data"}, method = RequestMethod.GET)
-    public String addSegnalazione(ModelMap model, @RequestParam("data") Date data, @RequestParam("codice") int codice, @RequestParam("descrizione") String descrizione) {
+    @RequestMapping(value = {"/dipendente/add"}, method = RequestMethod.GET)
+    public String add(ModelMap model) {
 
-        SegnalazioniService.saveSegnalazione(new Segnalazioni(codice, descrizione, data));
+        return "addSegnalazioneD";
+    }//addSegnalazione
+
+   
+    @RequestMapping(value = {"/dipendente/addSegnalazione"}, method = RequestMethod.GET)
+    public String addSegnalazione(ModelMap model, @ModelAttribute("segnalazione") Segnalazioni s) {
+
+        SegnalazioniService.saveSegnalazione(s);
         return "homeD";
     }//addSegnalazione
 
-    /**
-     * Metodo che offre al dipendente la possibilità di modificare una segnalazione effettuata in precedenza.
-     * @param model
-     * @param s oggetto di tipo Segnalazioni
-     * @return 
-     */
-    @RequestMapping(value = {"/dipendente/updateSegnalazione"}, method = RequestMethod.GET)
-    public String updateSegnalazione(ModelMap model, @ModelAttribute("segnalazione") Segnalazioni s) {
-        if(s!=null){
-            SegnalazioniService.updateSegnalazione(s);
-            model.addAttribute("segnalazione", s);
-        }//if
-        model.addAttribute("ErrMsg", "Errore : Completare i campi indicati");
-        return "homeD";
-    }//updateSegnalazione
 }
+   

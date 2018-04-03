@@ -6,6 +6,7 @@
 package nonConformita.controller;
 
 import nonConformita.model.Dipendenti;
+import nonConformita.model.Ruolo;
 import nonConformita.service.DipendenteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
@@ -27,6 +28,7 @@ public class ControllerGen {
     @Autowired
     DipendenteService DipendenteService;
     public static Dipendenti dip;
+
     @RequestMapping(value = {"/", "/login"}, method = RequestMethod.GET)
     public String login(ModelMap model) {
         return "login";
@@ -35,23 +37,22 @@ public class ControllerGen {
     @RequestMapping(value = {"/check"}, params = {"matr", "pass"}, method = RequestMethod.POST)
     public String check(ModelMap model, @RequestParam("matr") String matr, @RequestParam("pass") String pass) {
         Dipendenti user = DipendenteService.findByMatricola(matr);
-        return "homeR";
-        /*if (user == null) {
+        if (user == null) {
             model.addAttribute("ErrMsg", "Errore : nome utente non esistente");
             return "login";
         } else if (user.getPassword().equals(pass)) {
-            dip=DipendenteService.findByMatricola(matr);
-            if (user.getRuolo().equals("manager")) {
+            String tmp = user.getRuolo().name();
+            if (tmp.equals("manager")) {
                 return "homeM";
             }
             if (user.getRuolo().equals("responsabileQualita")) {
                 return " homeR";
             }
             return "homeD";
-        } else{
+        } else {
             model.addAttribute("ErrMsg", "Errore : password sbagliata");
             return "login";
         }
-        */
+
     }//check
 }
