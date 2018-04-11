@@ -9,12 +9,17 @@
 
 <html>
     <head>
+        <!-- CSS Aggiornato minimale e compilato -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+<!-- Tema Opzionale -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+
+<!-- JavaScript Aggiornato minimale e compilato -->
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-         <link href="resources/css/bootstrap.css" rel="stylesheet" type="text/css"/>
-        <link href="resources/css/index.css" rel="stylesheet" type="text/css"/>
-        <link href="resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-        <script src="resources/js/bootstrap.min.js"></script>
+         
     
         <title>JSP Page</title>
     </head>

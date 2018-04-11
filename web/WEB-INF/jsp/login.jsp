@@ -4,22 +4,33 @@
 
 <html>
     <head>
+        <!-- CSS Aggiornato minimale e compilato -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+<!-- Tema Opzionale -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+   <link rel="stylesheet" type="text/css" href="resources/css/style_login.css">
+<!-- JavaScript Aggiornato minimale e compilato -->
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="resources/css/bootstrap.css" rel="stylesheet" type="text/css"/>
-        <link href="resources/css/index.css" rel="stylesheet" type="text/css"/>
-        <link href="resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-        <script src="resources/js/bootstrap.min.js"></script>
+       
         <title>Welcome to Spring Web MVC project</title>
     </head>
 
     <body>
-        <form class="form-signin" name="formLog" action="/check" method="post" >
-                <h1 class="form-signin-heading text-muted">Esegui l'accesso</h1>
-                <c:if test = "${ErrMsg!=null}"><div id="err" style="color:red;"> ${ErrMsg}</div></c:if>
-                <input type="text"  name="matr" maxlength="8" placeholder="Username" required="" autofocus="">
-                <input type="password" name="pass"   maxlength="20" placeholder="Password" required="">
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Accedi</button>
+        <br><br><br><br><br><br><br><br><br><br>
+    <div class="login">
+        <div class="login-triangle"></div>
+  
+         <h2 class="login-header">Log in</h2>
+            
+            <form class="login-container" name="formLog" action="/check" method="post">
+            <c:if test = "${ErrMsg!=null}"><div id="err" style="color:red;"> ${ErrMsg}</div></c:if>
+            <input type="text"  name="matr" maxlength="8" placeholder="Username" required="" autofocus="">
+            <input type="password" name="pass"   maxlength="20" placeholder="Password" required="">
+            <p><input type="submit" value="Log in"></p>
             </form>
+    </div>
     </body>
 </html>
